@@ -1,0 +1,26 @@
+create database cafe;
+connect cafe;
+
+create table menu (
+Dish varchar(20) primary KEY,
+Cost float
+);
+
+create table ordered (
+sr int not null auto_increment primary key,
+Dish varchar(20),
+quantity int
+);
+
+Alter table ordered
+Add Constraint menu_order_fk FOREIGN KEY (Dish) REFERENCES menu(dish);
+
+insert into menu values 
+('Sandwich',5.0),
+('Coffee',3.2),
+('Fries',4.0),
+('Pizza',7.0),
+('Burger',6.0),
+('Tea',3.0),
+('Soft Drink',3.5);
+
